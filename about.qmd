@@ -1,0 +1,7 @@
+---
+title: "About"
+---
+
+About author of this site
+
+Admin A.

@@ -1,0 +1,62 @@
+---
+title: "AE02 - Hello git"
+author: "Aripez Hector"
+date: "09/01/2026"
+format: html
+---
+
+## Load packages and data
+
+```{r load-packages, message=FALSE}
+library(tidyverse)
+library(datasauRus)
+```
+
+## Exercises
+
+### Exercise 1
+
+1846 rows AND 3 column (variables).
+
+### Exercise 2
+
+Frequency table of the `dataset` variable:
+
+```{r count-dataset}
+datasaurus_dozen %>%
+  count(dataset) %>%
+  print(13)
+```
+Dino dataset plot:
+
+```{r plot-dino, fig.height=3, fig.width=6}
+dino_data <- datasaurus_dozen %>%
+  filter(dataset == "dino")
+
+ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
+  geom_point()
+```
+
+Calculation of the correlation between `x` and `y` in this dataset:
+
+```{r cor-dino}
+dino_data %>%
+  summarize(r = cor(x, y))
+```
+
+### Exercise 3
+
+```{r plot-star}
+datasaurus_dozen %>%
+  filter(dataset == "dino")%>%
+
+ggplot(aes(x = x, y = y)) +
+  geom_point()
+```
+
+```{r cor-star}
+datasaurus_dozen %>%
+  filter(dataset == "dino")%>%
+
+summarise(correlation = cor(x, y))
+```
